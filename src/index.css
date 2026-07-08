@@ -1,0 +1,283 @@
+:root {
+  --color-void: #05050A;
+  --color-cyan: #00f0ff;
+  --color-magenta: #ff00ff;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-text: #ffffff;
+  --color-text-muted: #8892b0;
+  
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  background-color: var(--color-void);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle at 50% 0%, #1a0b2e 0%, var(--color-void) 70%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--color-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0% { text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan); }
+  50% { text-shadow: 0 0 20px var(--color-magenta), 0 0 30px var(--color-magenta); }
+  100% { text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan); }
+}
+
+@keyframes gradient-text {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('/almudaya-quantum-site/quantum_hero.png') center/cover no-repeat;
+  opacity: 0.3;
+  z-index: -1;
+  mix-blend-mode: screen;
+}
+
+.title-glow {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--color-cyan), var(--color-magenta), var(--color-cyan));
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-text 5s ease infinite;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.floating-cube {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+  animation: float 6s ease-in-out infinite;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 30px rgba(255, 0, 255, 0.4));
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(45deg, var(--color-cyan), var(--color-magenta));
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+.secondary-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-cyan);
+  background: transparent;
+  border: 2px solid var(--color-cyan);
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.features {
+  padding: 8rem 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-magenta));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.2rem;
+}
+
+.terminal-section {
+  padding: 4rem 0 8rem 0;
+}
+
+.terminal-mockup {
+  background: #0d0d12;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(0, 240, 255, 0.1);
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.terminal-header {
+  background: #1a1a24;
+  padding: 10px 15px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-body {
+  padding: 20px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #a9b7c6;
+  text-align: left;
+}
+
+.prompt {
+  color: var(--color-cyan);
+  margin-right: 10px;
+  user-select: none;
+}
+
+.command {
+  color: #fff;
+  font-weight: 500;
+}
+
+.output {
+  color: var(--color-text-muted);
+  margin-bottom: 15px;
+  display: block;
+}
+
+.output-success {
+  color: #27c93f;
+}
+
+.output-highlight {
+  color: var(--color-magenta);
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--color-glass-border);
+  color: var(--color-text-muted);
+}
+
+.footer a {
+  color: var(--color-cyan);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
