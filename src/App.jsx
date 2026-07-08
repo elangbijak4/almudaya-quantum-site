@@ -39,11 +39,20 @@ function App() {
             <div className="terminal-body">
               <div>
                 <span className="prompt">~ $</span>
-                <span className="command">npx -y almudaya-quantum-blockchain</span>
+                <span className="command">npm install -g almudaya-quantum-blockchain</span>
               </div>
               <div className="output">
                 <br/>
-                <span className="output-success">✔</span> Booting Almudaya Quantum Node (v1.0.0)<br/>
+                <span className="output-success">added 104 packages in 19s</span><br/>
+                <br/>
+              </div>
+              <div>
+                <span className="prompt">~ $</span>
+                <span className="command">almudaya-quantum</span>
+              </div>
+              <div className="output">
+                <br/>
+                <span className="output-success">✔</span> Booting Almudaya Quantum Node (v1.0.1)<br/>
                 <span className="output-success">✔</span> Injecting DilithiumSignatureProvider...<br/>
                 <span className="output-success">✔</span> Initializing Post-Quantum Object Store...<br/>
                 <br/>
