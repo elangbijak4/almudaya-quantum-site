@@ -94,6 +94,56 @@ function App() {
         </div>
       </section>
 
+      {/* Tutorial Section */}
+      <section className="tutorial-section container" style={{ marginTop: '5rem', marginBottom: '5rem' }}>
+        <h2 className="section-title">Smart Contract Quick Start</h2>
+        <div className="glass-panel" style={{ textAlign: 'left', padding: '2.5rem' }}>
+          <h3>1. Creating Your First Contract</h3>
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
+            You can write Almudaya Smart Contracts using any simple text editor like <strong>Notepad</strong> or <strong>VSCode</strong>.
+            When saving your file, you must use the <code>.alm</code> extension (e.g., <code>QuantumIdentityRegistry.alm</code>).
+          </p>
+          <div style={{ padding: '1rem', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', borderLeft: '4px solid var(--color-primary)', margin: '1rem 0' }}>
+            <strong>Why .alm?</strong> The <code>.alm</code> (Almudaya) extension identifies the native language of the Almudaya ecosystem. It is parsed by our internal compiler and stored securely within the Post-Quantum Content-Addressed Object Store.
+          </div>
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
+            Save the file anywhere in your testing directory (for example, in a <code>contracts/</code> folder).
+          </p>
+
+          <h3 style={{ marginTop: '2rem' }}>2. Deploying the Contract</h3>
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
+            To avoid terminal freezing issues when pasting large JSON payloads via cURL or PowerShell, we recommend using a Node.js CLI script (<code>deploy.js</code>).
+            Simply execute the deployment script in your terminal while your Almudaya node is running:
+          </p>
+          
+          <div className="terminal-mockup" style={{ marginTop: '1.5rem' }}>
+            <div className="terminal-header">
+              <div className="terminal-dot dot-red"></div>
+              <div className="terminal-dot dot-yellow"></div>
+              <div className="terminal-dot dot-green"></div>
+            </div>
+            <div className="terminal-body">
+              <div>
+                <span className="prompt">~ $</span>
+                <span className="command">node deploy.js</span>
+              </div>
+              <div className="output">
+                <br/>
+                [1] Membaca file QuantumIdentityRegistry.alm...<br/>
+                [2] Mengirim transaksi ke Node (http://127.0.0.1:8545/rpc)...<br/>
+                <br/>
+                <span className="output-success">[3] 🚀 BERHASIL! Respons dari Server Node:</span><br/>
+                {'{'}<br/>
+                &nbsp;&nbsp;"contractAddress": "0x5f2a...",<br/>
+                &nbsp;&nbsp;"codeHash": "df5d...",<br/>
+                &nbsp;&nbsp;"storageHash": "d790..."<br/>
+                {'}'}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="footer">
         <div className="container">
